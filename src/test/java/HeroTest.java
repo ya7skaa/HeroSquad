@@ -6,5 +6,8 @@ public class HeroTest {
     public void Hero_instantiatesCorrectly_true(){
         Hero testHero = new Hero("Superman");
                 assertEquals(true,testHero instanceof Hero);
+
     }
+    @Test
+    public void getName
 }
