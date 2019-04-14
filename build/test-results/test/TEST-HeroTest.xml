@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="HeroTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-04-14T21:00:44" hostname="Abdirahmans-MBP.lan" time="0.005">
+<testsuite name="HeroTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-04-14T21:22:42" hostname="Abdirahmans-MBP.lan" time="0.004">
   <properties/>
-  <testcase name="clear_emptiesAllHeroesFromArrayList_0" classname="HeroTest" time="0.003"/>
+  <testcase name="clear_emptiesAllHeroesFromArrayList_0" classname="HeroTest" time="0.002"/>
   <testcase name="all_returnsAllInstancesOfHero_true" classname="HeroTest" time="0.0"/>
   <testcase name="getPower_instantiatesWithPower_String" classname="HeroTest" time="0.0"/>
   <testcase name="Hero_instantiatesCorrectly_true" classname="HeroTest" time="0.0"/>

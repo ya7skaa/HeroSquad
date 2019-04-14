@@ -23,5 +23,20 @@ public class SquadTest {
         Squad testSquad = new Squad("Sevens Squad",4,"Fighting bad breath");
         assertEquals("Fighting bad breath",testSquad.getCause());
     }
+    @Test
+    public void all_returnsAllInstancesOfSquad_true(){
+        Squad firstSquad = new Squad ("Sevens Squad",4,"Fighting bad breath");
+        Squad secondSquad = new Squad("Ya7ska",6,"Fighting racists");
+        assertEquals(true, Squad.all().contains(firstSquad));
+        assertEquals(true, Squad.all().contains(secondSquad));
+
+    }
+    @Test
+    public void clear_emptiesAllSquadFromArrayList_0(){
+        Squad testSquad = new Squad("Sevens Squad",4,"Fighting bad breath");
+        Squad.clear();
+        assertEquals(Squad.all().size(), 0);
+
+    }
 
 }
