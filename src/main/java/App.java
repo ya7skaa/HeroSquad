@@ -109,5 +109,29 @@ public class App {
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
+
+        get("/squads/:id/heroes/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            Squad squad = Squad.find(Integer.parseInt(request.params(":id")));
+            model.put("squad", squad);
+            model.put("template", "templates/heroform.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+
+
+
+
+
+//        post("/squads/1", (request, response) ->{
+//            Map<String, Object> model = new HashMap<String, Object>();
+//            String heroName = request.queryParams("heroName");
+//            String heroPower = request.queryParams("heroPower");
+//            String heroWeakness = request.queryParams("heroWeakness");
+//            int heroAge = Integer.parseInt(request.queryParams("heroAge"));
+//            Hero myHero = new Hero(heroName,heroAge,heroPower,heroWeakness);
+//            model.put("template", "templates/heroform.vtl");
+//            return new ModelAndView(model, layout);
+//        }, new VelocityTemplateEngine());
+
     }
 }
