@@ -70,7 +70,8 @@ public class HeroTest {
     }
     //Test for finding Specific object
 //    @Test
-//    public void squad_WillReturnSquadWithSameId_secondSquad(){
+//    public void squad_WillReturnHeroWithSameId_secondHero(){
+//        Hero.clear();
 //
 //        Hero firstHero = new Hero("Batman",30,"Strength","Parents");
 //

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="HeroTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2019-04-14T22:18:31" hostname="Abdirahmans-MBP.lan" time="0.004">
+<testsuite name="HeroTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2019-04-15T05:55:26" hostname="Abdirahmans-MBP.lan" time="0.004">
   <properties/>
-  <testcase name="clear_emptiesAllHeroesFromArrayList_0" classname="HeroTest" time="0.002"/>
+  <testcase name="clear_emptiesAllHeroesFromArrayList_0" classname="HeroTest" time="0.003"/>
   <testcase name="all_returnsAllInstancesOfHero_true" classname="HeroTest" time="0.0"/>
-  <testcase name="getPower_instantiatesWithPower_String" classname="HeroTest" time="0.001"/>
+  <testcase name="getPower_instantiatesWithPower_String" classname="HeroTest" time="0.0"/>
   <testcase name="Hero_instantiatesCorrectly_true" classname="HeroTest" time="0.0"/>
   <testcase name="getWeakness_instantiatesWithWeakness_String" classname="HeroTest" time="0.0"/>
   <testcase name="getName_instantiatesWithName_String" classname="HeroTest" time="0.0"/>

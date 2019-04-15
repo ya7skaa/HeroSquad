@@ -7,6 +7,8 @@ public class Squad {
     private int mSize;
     private String mCause;
     private static List<Squad> instances = new ArrayList<Squad>();
+    private int mId;
+    private List<Hero> mHeros;
 
 
     public Squad(String name, int size,String cause){
@@ -14,21 +16,50 @@ public class Squad {
         mSize = size;
         mCause = cause;
         instances.add(this);
+        mId = instances.size();
+        mHeros = new ArrayList<>();
     }
+
+    //Method for getting Squad name
     public String getName(){
         return mName;
     }
+
+    //Method for getting Squad size
     public int getSize() {
         return mSize;
     }
+
+    //Method for getting Squad cause
     public String getCause(){
         return mCause;
     }
+
+    //Method to return all Squad in the list
     public static List<Squad> all() {
         return instances;
     }
+
+    //Method to clear Squad from ArrayList
     public static void clear(){
         instances.clear();
+    }
+
+    // method  for instantiating with Id
+    public  int getId(){
+        return mId;
+    }
+    //Method for finding specific ID
+    public static Squad find(int id){
+
+        return instances.get(id - 1);
+
+    }
+    //Method to add heros to our Squads Array
+    public void addHero(Hero hero){
+
+        mHeros.add(hero);
+
     }
 
 }
