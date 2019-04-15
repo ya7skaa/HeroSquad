@@ -122,16 +122,17 @@ public class App {
 
 
 
-//        post("/squads/1", (request, response) ->{
-//            Map<String, Object> model = new HashMap<String, Object>();
-//            String heroName = request.queryParams("heroName");
-//            String heroPower = request.queryParams("heroPower");
-//            String heroWeakness = request.queryParams("heroWeakness");
-//            int heroAge = Integer.parseInt(request.queryParams("heroAge"));
-//            Hero myHero = new Hero(heroName,heroAge,heroPower,heroWeakness);
-//            model.put("template", "templates/heroform.vtl");
-//            return new ModelAndView(model, layout);
-//        }, new VelocityTemplateEngine());
+        //Post Method for Heros
+        post("/heroes", (request, response) ->{
+            Map<String, Object> model = new HashMap<String, Object>();
+            String name = request.queryParams("heroName");
+            String power = request.queryParams("heroPower");
+            String weakness = request.queryParams("heroWeakness");
+            int age = Integer.parseInt(request.queryParams("heroAge"));
+            Hero myHero = new Hero(name, age, power, weakness);
+            model.put("template", "templates/hero-Success.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
 
     }
 }
