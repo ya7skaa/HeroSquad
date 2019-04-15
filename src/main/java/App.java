@@ -23,12 +23,36 @@ public class App {
 //
 //        setPort(port);
 
-
+        //get method for homepage
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("template", "templates/index.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
+
+
+        // get and POST methods for Squad
+        get("/squad/new",(request, response) -> {
+            Map<String,Object> model = new HashMap<String,Object>();
+            model.put("template","templates/squadForm.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+
+
+        //Get Method for Squads page
+        get("/squad", (request, response) -> {
+
+            Map<String, Object> model = new HashMap<String, Object>();
+
+            model.put("squads", Squad.all());
+
+            model.put("template", "templates/squads.vtl");
+
+            return new ModelAndView(model, layout);
+
+        }, new VelocityTemplateEngine());
+
+
 
     }
 
