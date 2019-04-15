@@ -1,3 +1,21 @@
 body{
 background-image: url("http://howzyerteeth.beacondeacon.com/Batman/52/justice-league-avengers.png");
 }
+.well{
+
+margin-top: 10%;
+background-color:rgba(255,165,0,0.7);
+font-color: white;
+border: solid 6px black;
+}
+#index{
+height: 500px;
+}
+#btn{
+margin-top : 30%
+
+}
+.heading{
+
+text-align: center;
+}
