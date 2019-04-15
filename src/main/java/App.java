@@ -1,6 +1,8 @@
 import java.util.HashMap;
 
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 
 import spark.ModelAndView;
@@ -30,13 +32,13 @@ public class App {
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
-
-        // get and POST methods for Squad
-        get("/squad/new",(request, response) -> {
-            Map<String,Object> model = new HashMap<String,Object>();
-            model.put("template","templates/squadForm.vtl");
-            return new ModelAndView(model, layout);
-        }, new VelocityTemplateEngine());
+//
+//        // get and POST methods for Squad
+//        get("/squad/new",(request, response) -> {
+//            Map<String,Object> model = new HashMap<String,Object>();
+//            model.put("template","templates/squad.vtl");
+//            return new ModelAndView(model, layout);
+//        }, new VelocityTemplateEngine());
 
 
         //Get Method for Squads page
@@ -52,6 +54,54 @@ public class App {
             return new ModelAndView(model, layout);
 
         }, new VelocityTemplateEngine());
+
+
+
+        get("/squad/new", (request, response) -> {
+
+            Map<String, Object> model = new HashMap<String, Object>();
+            String name = request.queryParams("name");
+
+            model.put("squad", Squad.all());
+
+            model.put("template", "templates/squadform.vtl");
+
+            return new ModelAndView(model, layout);
+
+        }, new VelocityTemplateEngine());
+
+
+
+        post("/squad", (request, response) -> {
+
+            Map<String, Object> model = new HashMap<String, Object>();
+
+            ArrayList<Squad> squads = request.session().attribute("squads");
+
+            if (squads == null) {
+
+                squads = new ArrayList<Squad>();
+
+                request.session().attribute("squad", squads);
+
+            }
+
+            String name = request.queryParams("name");
+
+            String cause = request.queryParams("cause");
+
+            int size = Integer.parseInt(request.queryParams("size"));
+
+            Squad mySquad = new Squad(name,size,cause);
+
+            squads.add(mySquad);
+
+            model.put("template", "templates/squad-success.vtl");
+
+            return new ModelAndView(model, layout);
+
+        }, new VelocityTemplateEngine());
+
 
 
 
