@@ -71,4 +71,21 @@ public class SquadTest {
     }
 
 
+    @Test
+    public void getHeroes_instantiatesRetutnAnEmptyList_ArrayList(){
+        Squad.clear();
+        Squad testSquad = new Squad("Sevens Squad",4,"Fighting bad breath");
+        assertEquals(0,testSquad.getHeroes().size());
+
+    }
+
+    @Test
+    public void addHero_addHeroToList_true(){
+        Squad testSquad = new Squad("Sevens Squad",4,"Fighting bad breath");
+        Hero testHero = new Hero("Batman",4,"Strength","Parents");
+        testSquad.addHero(testHero);
+        assertTrue(testSquad.getHeroes().contains(testHero));
+    }
+
+
 }

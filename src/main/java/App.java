@@ -42,26 +42,26 @@ public class App {
 
 
         //Get Method for Squads page
-        get("/squad", (request, response) -> {
+//        get("/squad", (request, response) -> {
+//
+//            Map<String, Object> model = new HashMap<String, Object>();
+//            String name = request.queryParams("name");
+//
+//            model.put("squad", Squad.all());
+//
+//            model.put("template", "templates/squad.vtl");
+//
+//            return new ModelAndView(model, layout);
+//
+//        }, new VelocityTemplateEngine());
+
+
+        get("/squads/new", (request, response) -> {
 
             Map<String, Object> model = new HashMap<String, Object>();
-            String name = request.queryParams("name");
+//            String name = request.queryParams("name");
 
-            model.put("squad", Squad.all());
-
-            model.put("template", "templates/squad.vtl");
-
-            return new ModelAndView(model, layout);
-
-        }, new VelocityTemplateEngine());
-
-
-        get("/squad/new", (request, response) -> {
-
-            Map<String, Object> model = new HashMap<String, Object>();
-            String name = request.queryParams("name");
-
-            model.put("squad", Squad.all());
+//            model.put("squad", Squad.all());
 
             model.put("template", "templates/squadform.vtl");
 
@@ -70,47 +70,43 @@ public class App {
         }, new VelocityTemplateEngine());
 
 
-        post("/squad", (request, response) -> {
+        post("/squads", (request, response) -> {
 
-            Map<String, Object> model = new HashMap<String, Object>();
+            Map<String, Object> model = new HashMap<>();
 
-            ArrayList<Squad> squads = request.session().attribute("squads");
+            String name = request.queryParams("squadName");
 
-            if (squads == null) {
+            String cause = request.queryParams("squadCause");
 
-                squads = new ArrayList<Squad>();
-
-                request.session().attribute("squad", squads);
-
-            }
-
-            String name = request.queryParams("name");
-
-            String cause = request.queryParams("cause");
-
-            int size = Integer.parseInt(request.queryParams("size"));
+            int size = Integer.parseInt(request.queryParams("squadSize"));
 
             Squad mySquad = new Squad(name, size, cause);
 
-            squads.add(mySquad);
-
-            model.put("template", "templates/squad-success.vtl");
+            model.put("template", "templates/squadsuccess.vtl");
 
             return new ModelAndView(model, layout);
 
         }, new VelocityTemplateEngine());
 
 
-        get("/squad/new", (request, response) -> {
+        get("/squads", (request, response) -> {
 
             Map<String, Object> model = new HashMap<String, Object>();
 
-            model.put("squad", Squad.all());
+            model.put("squads", Squad.all());
 
-            model.put("template", "templates/squad.vtl");
+            model.put("template", "templates/squads.vtl");
 
             return new ModelAndView(model, layout);
 
+        }, new VelocityTemplateEngine());
+
+        get("/squads/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            Squad squad = Squad.find(Integer.parseInt(request.params(":id")));
+            model.put("squad", squad);
+            model.put("template", "templates/squad.vtl");
+            return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
     }

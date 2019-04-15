@@ -1,19 +1,37 @@
 
 
-        #if ($heros)
-<h2>$squad.getSquadName()</h2>
+<!--        #if ($heros)-->
+<!--<h2>$squad.getSquadName()</h2>-->
 
-        #foreach ($hero in $heros)
-<div class="wrapper">
-<p>$hero.getHeroName()</p>
-<p>$hero.getHeroPower()</p>
-<p>$hero.getHeroWeakness()</p>
-<p>$hero.getHeroAge()</p>
-</div>
-        #end
+<!--        #foreach ($hero in $heros)-->
+<!--<div class="wrapper">-->
+<!--<p>$hero.getName()</p>-->
+<!--<p>$hero.getPower()</p>-->
+<!--<p>$hero.getWeakness()</p>-->
+<!--<p>$hero.getAge()</p>-->
+<!--</div>-->
+<!--        #end-->
 
-        #else
-<p>No heros Added!</p>
+<!--        #else-->
+<!--<p>No heros Added!</p>-->
 
-        #end
-<button class="btn btn-info btn-lg"><a href="/squads/$squad.getId()/heros/new">Add a new Hero !</a></button>
+<!--        #end-->
+<!--<button class="btn btn-info btn-lg"><a href="/squads/$squad.getId()/heros/new">Add a new Hero !</a></button>-->
+
+
+<h1>$squad.getName() heroes:</h1>
+
+
+
+<ul>
+#foreach($hero in $squad.getHeroes())
+<li>$hero.getName()
+    $hero.getAge()
+    $hero.getPower()
+    $hero.getWeakness()</li>
+#end
+</ul>
+
+
+<button class="btn btn-info"><a href="/squads/$squad.getId()/heroes/new">Add a new hero</a></button>
+<button class="btn btn-info"><a href="/squads">All squads</a></button>

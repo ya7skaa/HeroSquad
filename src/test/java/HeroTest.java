@@ -69,17 +69,16 @@ public class HeroTest {
 
     }
     //Test for finding Specific object
-//    @Test
-//    public void squad_WillReturnHeroWithSameId_secondHero(){
-//        Hero.clear();
-//
-//        Hero firstHero = new Hero("Batman",30,"Strength","Parents");
-//
-//        Hero secondHero = new Hero("Spiderman",17,"Flying","Age");
-//
-//        assertEquals(Hero.find(firstHero.getId()), secondHero);
-//
-//    }
+    @Test
+    public void squad_WillReturnHeroWithSameId_secondHero(){
+
+        Hero firstHero = new Hero("Batman",30,"Strength","Parents");
+
+        Hero secondHero = new Hero("Spiderman",17,"Flying","Age");
+
+        assertEquals(Hero.find(secondHero.getId()), secondHero);
+
+    }
 
 
 
