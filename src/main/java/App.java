@@ -43,10 +43,11 @@ public class App {
         get("/squad", (request, response) -> {
 
             Map<String, Object> model = new HashMap<String, Object>();
+            String name = request.queryParams("name");
 
-            model.put("squads", Squad.all());
+            model.put("squad", Squad.all());
 
-            model.put("template", "templates/squads.vtl");
+            model.put("template", "templates/squad.vtl");
 
             return new ModelAndView(model, layout);
 
