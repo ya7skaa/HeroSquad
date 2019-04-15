@@ -11,7 +11,7 @@ import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
 
 public class App {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         staticFileLocation("/public");
         String layout = "templates/layout.vtl";
 
@@ -56,7 +56,6 @@ public class App {
         }, new VelocityTemplateEngine());
 
 
-
         get("/squad/new", (request, response) -> {
 
             Map<String, Object> model = new HashMap<String, Object>();
@@ -69,7 +68,6 @@ public class App {
             return new ModelAndView(model, layout);
 
         }, new VelocityTemplateEngine());
-
 
 
         post("/squad", (request, response) -> {
@@ -92,7 +90,7 @@ public class App {
 
             int size = Integer.parseInt(request.queryParams("size"));
 
-            Squad mySquad = new Squad(name,size,cause);
+            Squad mySquad = new Squad(name, size, cause);
 
             squads.add(mySquad);
 
@@ -103,10 +101,17 @@ public class App {
         }, new VelocityTemplateEngine());
 
 
+        get("/squad/new", (request, response) -> {
 
+            Map<String, Object> model = new HashMap<String, Object>();
+
+            model.put("squad", Squad.all());
+
+            model.put("template", "templates/squad.vtl");
+
+            return new ModelAndView(model, layout);
+
+        }, new VelocityTemplateEngine());
 
     }
-
-
-
 }
