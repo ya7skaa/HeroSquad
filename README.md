@@ -23,10 +23,6 @@ and add them to the squads they just creates.
 - If you have git Use this command `git clone *` to clone the project.
 - Run ng serve from your terminal
 
-## Live Demo
-To view the page click on the link below
-*[https://gtracer.netlify.com/](*)
-
 
 
 
