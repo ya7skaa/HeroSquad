@@ -12,12 +12,22 @@ border: solid 6px black;
 height: 500px;
 }
 #btn{
-margin-top : 30%
+margin-top : 10%
+item-align:center;
 
 }
 .heading{
 text-align: center;
+font-family: 'Luckiest Guy', cursive;
 }
 #success{
 margin-top: 15%;
 }
+.rules{
+text-align: center;
+font-size: 24px;
+color: white;
+
+}
+.hero{
+text-align:center;}
